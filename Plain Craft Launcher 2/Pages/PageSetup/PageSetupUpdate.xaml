@@ -1,0 +1,46 @@
+<local:MyPageRight
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" x:Class="PCL.PageSetupUpdate"
+    PanScroll="{Binding ElementName=PanBack}">
+    <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="PanBack">
+        <StackPanel x:Name="PanMain" Margin="25,25,25,10">
+            <!-- PClonline 更新：唯一入口，检查与安装都走 PClonlineUpdater（清单来自七牛 CDN），
+                 旧社区更新链路（更新通道 / 自动更新 / Mirror 酱 CDK / PCL CE 卡片）已随 v50.10.2 移除 -->
+            <local:MyCard x:Name="CardCheck" Margin="0,0,0,15">
+                <StackPanel Margin="20,20,20,20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="29" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <Image Source="/Images/icon-online.png" Grid.Column="0" Grid.Row="0"
+                               Grid.RowSpan="3" Height="50" Width="50" HorizontalAlignment="Left"
+                               VerticalAlignment="Center" />
+                        <TextBlock x:Name="TextCurrentVersion" Text="PClonline" FontWeight="Bold" FontSize="20"
+                                   Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+                        <TextBlock x:Name="TextCurrentDesc" Text="{DynamicResource Setup.Update.Latest}" FontSize="14" Grid.Row="2" Grid.Column="2"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <local:MyButton x:Name="BtnCheckAgain" Text="{DynamicResource Setup.Update.CheckAgain}" ColorType="Highlight" Grid.Row="0"
+                                        Grid.RowSpan="2" Grid.Column="3" HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch" Click="BtnCheckAgain_OnClick" />
+                        <local:MyButton x:Name="BtnChangelog" Text="{DynamicResource Setup.Update.Changelog.View}" ColorType="Normal" Grid.Row="0"
+                                        Grid.RowSpan="2" Grid.Column="5" HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch" Visibility="Collapsed" Click="BtnChangelog_Click" />
+                    </Grid>
+                </StackPanel>
+            </local:MyCard>
+        </StackPanel>
+    </local:MyScrollViewer>
+</local:MyPageRight>
