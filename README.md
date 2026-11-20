@@ -4,22 +4,49 @@
 
 # PClonline
 
-**基于 PCL2-CE 的 Minecraft 启动器**
+**Minecraft 联机启动器 —— 一个房间码，直接进游戏**
 
-实例管理 · 模组整合 · 多源下载 · 干净利落的启动体验
-
+[![Release](https://img.shields.io/github/v/release/ShangFang95/PClonline?style=for-the-badge&logo=github)](https://github.com/ShangFang95/PClonline/releases)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue?style=for-the-badge)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com/)
 [![Platform](https://img.shields.io/badge/platform-Windows-0078D4?style=for-the-badge&logo=windows)](https://www.microsoft.com/windows)
-[![Based on](https://img.shields.io/badge/based%20on-PCL2--CE-2ea44f?style=for-the-badge)](https://github.com/PCL-Community/PCL2-CE)
 
 </div>
 
-**English summary**: A Minecraft launcher built on PCL2-CE, focused on instance management, mod handling, multi-source downloads and a clean startup experience.
+**English summary**: PClonline is a Minecraft launcher built on PCL2-CE. Hosting and inviting friends is reduced to two steps — open a room, share a 5-character code.
 
-PClonline 是基于 **PCL2-CE（Plain Craft Launcher 2 Community Edition）** 二次开发的 Minecraft 启动器，沿用 PCL2 的界面与操作习惯，并围绕实例管理、下载与启动流程做了定制与打磨。
+PClonline 是基于 **PCL2-CE（Plain Craft Launcher 2 Community Edition）** 二次开发的 Minecraft 启动器。它把「开服 + 邀请好友」压缩成两步：**开房、发码**——不需要公网 IP、端口映射和命令行。
 
 > ⚠️ 本项目为社区驱动的第三方启动器，与 Mojang Studios、Microsoft 无任何关联。
+
+## 🎮 联机：一个房间码就够了
+
+**① 5 位房间码，输入就进**
+
+启动游戏并开始联机后，启动器会给出一枚 5 位房间码。好友在加入页输入这串码，就能进入同一个世界或服务器，不用管端口、IP 和防火墙。
+
+**② 好友在线，一眼看清**
+
+登录之后，左栏直接显示好友的在线状态。把房间码发给对方，他输入后就能进你的房间——不需要额外的邀请链接或第三方工具。
+
+**③ 直连优先，延迟更低**
+
+优先尝试玩家之间的直连通道：网络条件合适时，游戏数据不绕远路，延迟更低、带宽更充足。连不上时会自动降级，尽量让房间「总能进得去」。
+
+**④ 账号与好友体系**
+
+支持扫码登录与账号密码登录，账号 ID 固定 10 位，方便抄给朋友。好友名单保存在云端，换一台电脑登录也不会丢。
+
+## ✨ 启动器能力
+
+在联机之外，PClonline 继承了 PCL2 的完整启动器功能：
+
+- **实例管理**：多版本、多加载器相互隔离，版本设置互不影响
+- **模组与整合包**：安装、启停、冲突提示，支持 CurseForge / Modrinth
+- **资源下载**：原版、Forge、Fabric、NeoForge、OptiFine 等一键安装，多源自动回退
+- **Java 管理**：自动检测与选择 Java，缺失时可引导安装 Mojang 官方运行时
+- **账户**：微软正版登录、离线账户、多账户快速切换
+- **界面与体验**：明暗主题、自定义背景与音乐、启动动画、崩溃分析
 
 ## 📦 关于本仓库
 
@@ -32,33 +59,20 @@ PClonline 是基于 **PCL2-CE（Plain Craft Launcher 2 Community Edition）** �
 | `PCL.Core.SourceGenerators` | 编译期源码生成器 |
 | `PCL.Core.Test` | 单元测试 |
 
-联机、账号与自动更新模块**不包含在本仓库内**，因此本仓库无法直接编译出完整发行版，仅供学习、参考与通用部分的二次开发。完整发行版请从官方发布渠道获取。
+联机、账号与自动更新模块**不包含在本仓库内**，因此本仓库无法直接编译出完整发行版，仅供学习、参考与通用部分的二次开发。
 
-## ✨ 功能特性
+## 🚀 下载
 
-- **实例管理**：多版本、多加载器相互隔离，版本设置互不影响
-- **模组与整合包**：安装、启停、冲突提示，支持 CurseForge / Modrinth
-- **资源下载**：原版、Forge、Fabric、NeoForge、OptiFine 等一键安装，多源自动回退
-- **Java 管理**：自动检测与选择 Java，缺失时可引导安装 Mojang 官方运行时
-- **账户**：微软正版登录、离线账户、多账户快速切换
-- **界面与体验**：明暗主题、自定义背景与音乐、启动动画、崩溃分析
-
-## 🚀 快速上手
-
-1. 从官方发布页下载压缩包并解压（自包含版开箱即用，无需安装 .NET）
-2. 启动 `Plain Craft Launcher 2.exe`
-3. 在「版本列表」选择或安装游戏版本，点击启动即可
-
-## 🛠️ 关于构建
-
-仓库中的通用部分可以独立编译为类库与界面程序；由于联机、账号、更新模块未开源，完整发行版的构建需要在私有环境中补齐这些模块。欢迎基于本仓库的通用能力做自己的启动器。
+- **源码快照**：见 [Releases](https://github.com/ShangFang95/PClonline/releases)（仅源码归档，不含可执行文件）
+- **完整发行版**（含联机模块）：请通过官方发布渠道获取
 
 ## 🗺️ 路线图
 
+- [x] 5 位房间码加入与好友体系
+- [x] 直连优先的联机通道
 - [x] 实例管理与多加载器支持
-- [x] 模组 / 整合包安装与更新
 - [x] 多源下载与 Java 自动选择
-- [ ] 持续打磨启动稳定性与交互细节
+- [ ] 持续打磨联机稳定性与启动体验
 
 ## 🤝 参与贡献
 
